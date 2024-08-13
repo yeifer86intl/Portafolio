@@ -1,0 +1,39 @@
+[2024-08-07T14:33:51.219+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-08-07T14:33:51.251+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: ETL_anyone.plots manual__2024-08-07T14:32:15.310626+00:00 [queued]>
+[2024-08-07T14:33:51.261+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: ETL_anyone.plots manual__2024-08-07T14:32:15.310626+00:00 [queued]>
+[2024-08-07T14:33:51.262+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2024-08-07T14:33:51.307+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): plots> on 2024-08-07 14:32:15.310626+00:00
+[2024-08-07T14:33:51.318+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62: DeprecationWarning: This process (pid=126) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2024-08-07T14:33:51.321+0000] {standard_task_runner.py:64} INFO - Started process 128 to run task
+[2024-08-07T14:33:51.320+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'ETL_anyone', 'plots', 'manual__2024-08-07T14:32:15.310626+00:00', '--job-id', '51', '--raw', '--subdir', 'DAGS_FOLDER/ETL_anyone.py', '--cfg-path', '/tmp/tmp53yr7s7c']
+[2024-08-07T14:33:51.324+0000] {standard_task_runner.py:91} INFO - Job 51: Subtask plots
+[2024-08-07T14:33:51.425+0000] {task_command.py:426} INFO - Running <TaskInstance: ETL_anyone.plots manual__2024-08-07T14:32:15.310626+00:00 [running]> on host 2e8a41f9b15c
+[2024-08-07T14:33:51.616+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='ETL_anyone' AIRFLOW_CTX_TASK_ID='plots' AIRFLOW_CTX_EXECUTION_DATE='2024-08-07T14:32:15.310626+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-08-07T14:32:15.310626+00:00'
+[2024-08-07T14:33:51.634+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-08-07T14:33:51.653+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-08-07T14:33:51.654+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 235, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 252, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/dags/plots_dag.py", line 3, in main_plots_dag
+    import matplotlib.pyplot as plt
+ModuleNotFoundError: No module named 'matplotlib'
+[2024-08-07T14:33:51.669+0000] {taskinstance.py:1206} INFO - Marking task as FAILED. dag_id=ETL_anyone, task_id=plots, run_id=manual__2024-08-07T14:32:15.310626+00:00, execution_date=20240807T143215, start_date=20240807T143351, end_date=20240807T143351
+[2024-08-07T14:33:51.706+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 51 for task plots (No module named 'matplotlib'; 128)
+[2024-08-07T14:33:51.737+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 1
+[2024-08-07T14:33:51.750+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

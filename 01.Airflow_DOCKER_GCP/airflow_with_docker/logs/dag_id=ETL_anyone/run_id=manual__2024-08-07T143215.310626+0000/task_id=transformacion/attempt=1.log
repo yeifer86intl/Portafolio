@@ -1,0 +1,34 @@
+[2024-08-07T14:33:21.414+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-08-07T14:33:21.468+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: ETL_anyone.transformacion manual__2024-08-07T14:32:15.310626+00:00 [queued]>
+[2024-08-07T14:33:21.481+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: ETL_anyone.transformacion manual__2024-08-07T14:32:15.310626+00:00 [queued]>
+[2024-08-07T14:33:21.482+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2024-08-07T14:33:21.543+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): transformacion> on 2024-08-07 14:32:15.310626+00:00
+[2024-08-07T14:33:21.553+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62: DeprecationWarning: This process (pid=116) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2024-08-07T14:33:21.555+0000] {standard_task_runner.py:64} INFO - Started process 118 to run task
+[2024-08-07T14:33:21.555+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'ETL_anyone', 'transformacion', 'manual__2024-08-07T14:32:15.310626+00:00', '--job-id', '50', '--raw', '--subdir', 'DAGS_FOLDER/ETL_anyone.py', '--cfg-path', '/tmp/tmpba8iij0m']
+[2024-08-07T14:33:21.560+0000] {standard_task_runner.py:91} INFO - Job 50: Subtask transformacion
+[2024-08-07T14:33:21.644+0000] {task_command.py:426} INFO - Running <TaskInstance: ETL_anyone.transformacion manual__2024-08-07T14:32:15.310626+00:00 [running]> on host 2e8a41f9b15c
+[2024-08-07T14:33:21.836+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='ETL_anyone' AIRFLOW_CTX_TASK_ID='transformacion' AIRFLOW_CTX_EXECUTION_DATE='2024-08-07T14:32:15.310626+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-08-07T14:32:15.310626+00:00'
+[2024-08-07T14:33:21.839+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-08-07T14:33:21.871+0000] {logging_mixin.py:188} INFO - delivery_date_difference
+[2024-08-07T14:33:21.881+0000] {warnings.py:112} WARNING - /opt/***/dags/src/transform.py:54: UserWarning: pandas only supports SQLAlchemy connectable (engine/connection) or database string URI or sqlite3 DBAPI2 connection. Other DBAPI2 objects are not tested. Please consider using SQLAlchemy.
+  result = pd.read_sql(query, con=connection.connection)
+
+[2024-08-07T14:33:43.423+0000] {warnings.py:112} WARNING - /opt/***/dags/src/transform.py:54: UserWarning: pandas only supports SQLAlchemy connectable (engine/connection) or database string URI or sqlite3 DBAPI2 connection. Other DBAPI2 objects are not tested. Please consider using SQLAlchemy.
+  result = pd.read_sql(query, con=connection.connection)
+
+[2024-08-07T14:33:48.132+0000] {logging_mixin.py:188} INFO -                            order_id  total_freight_value  total_weight
+0  00010242fe8c5a6d1ba2dd792cb16214                13.29         650.0
+1  00018f77f2f0320c557190d7a144bdd3                19.93       30000.0
+2  000229ec398224ef6ca0657da4fc703e                17.87        3050.0
+3  00024acbcdf0a6daa1e931b038114c75                12.79         200.0
+4  00042b26cf59d7ce69dfabb4e55b4fd9                18.14        3750.0
+[2024-08-07T14:33:48.133+0000] {logging_mixin.py:188} INFO - Transformación de datos completa.
+[2024-08-07T14:33:48.148+0000] {python.py:237} INFO - Done. Returned value was: None
+[2024-08-07T14:33:48.150+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-08-07T14:33:48.164+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=ETL_anyone, task_id=transformacion, run_id=manual__2024-08-07T14:32:15.310626+00:00, execution_date=20240807T143215, start_date=20240807T143321, end_date=20240807T143348
+[2024-08-07T14:33:48.222+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 0
+[2024-08-07T14:33:48.263+0000] {taskinstance.py:3503} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2024-08-07T14:33:48.290+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

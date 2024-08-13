@@ -1,0 +1,193 @@
+[2024-08-07T12:53:11.633+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-08-07T12:53:11.662+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: ETL_anyone.carga manual__2024-08-07T12:53:08.668874+00:00 [queued]>
+[2024-08-07T12:53:11.672+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: ETL_anyone.carga manual__2024-08-07T12:53:08.668874+00:00 [queued]>
+[2024-08-07T12:53:11.673+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2024-08-07T12:53:11.732+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): carga> on 2024-08-07 12:53:08.668874+00:00
+[2024-08-07T12:53:11.746+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62: DeprecationWarning: This process (pid=62) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2024-08-07T12:53:11.751+0000] {standard_task_runner.py:64} INFO - Started process 64 to run task
+[2024-08-07T12:53:11.751+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'ETL_anyone', 'carga', 'manual__2024-08-07T12:53:08.668874+00:00', '--job-id', '28', '--raw', '--subdir', 'DAGS_FOLDER/ETL_anyone.py', '--cfg-path', '/tmp/tmpmaq__ubl']
+[2024-08-07T12:53:11.756+0000] {standard_task_runner.py:91} INFO - Job 28: Subtask carga
+[2024-08-07T12:53:11.859+0000] {task_command.py:426} INFO - Running <TaskInstance: ETL_anyone.carga manual__2024-08-07T12:53:08.668874+00:00 [running]> on host 2e8a41f9b15c
+[2024-08-07T12:53:12.033+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='ETL_anyone' AIRFLOW_CTX_TASK_ID='carga' AIRFLOW_CTX_EXECUTION_DATE='2024-08-07T12:53:08.668874+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-08-07T12:53:08.668874+00:00'
+[2024-08-07T12:53:12.036+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-08-07T12:53:12.078+0000] {logging_mixin.py:188} INFO - csv_folder /opt/***/dags/dataset
+[2024-08-07T12:53:12.079+0000] {logging_mixin.py:188} INFO - public_holidays_url https://date.nager.at/api/v3/publicholidays
+[2024-08-07T12:53:12.080+0000] {logging_mixin.py:188} INFO - csv_table_mapping {'olist_customers_dataset.csv': 'olist_customers', 'olist_geolocation_dataset.csv': 'olist_geolocation', 'olist_order_items_dataset.csv': 'olist_order_items', 'olist_order_payments_dataset.csv': 'olist_order_payments', 'olist_order_reviews_dataset.csv': 'olist_order_reviews', 'olist_orders_dataset.csv': 'olist_orders', 'olist_products_dataset.csv': 'olist_products', 'olist_sellers_dataset.csv': 'olist_sellers', 'product_category_name_translation.csv': 'product_category_name_translation'}
+[2024-08-07T12:53:15.485+0000] {logging_mixin.py:188} INFO - https://date.nager.at/api/v3/publicholidays/2017/BR
+[2024-08-07T12:53:15.496+0000] {logging_mixin.py:188} INFO - ------------------------
+[2024-08-07T12:53:15.622+0000] {logging_mixin.py:188} INFO - {'olist_customers':                             customer_id  ... customer_state
+0      06b8999e2fba1a1fbc88172c00ba8bc7  ...             SP
+1      18955e83d337fd6b2def6b18a428ac77  ...             SP
+2      4e7b3e00288586ebd08712fdd0374a03  ...             SP
+3      b2b6027bc5c5109e529d4dc6358b12c3  ...             SP
+4      4f2d8ab171c80ec8364f7c12e35b23ad  ...             SP
+...                                 ...  ...            ...
+99436  17ddf5dd5d51696bb3d7c6291687be6f  ...             SP
+99437  e7b71a9017aa05c9a7fd292d714858e8  ...             SP
+99438  5e28dfe12db7fb50a4b2f691faecea5e  ...             CE
+99439  56b18e2166679b8a959d72dd06da27f9  ...             RS
+99440  274fa6071e5e17fe303b9748641082c8  ...             SP
+
+[99441 rows x 5 columns], 'olist_geolocation':          geolocation_zip_code_prefix  ...  geolocation_state
+0                               1037  ...                 SP
+1                               1046  ...                 SP
+2                               1046  ...                 SP
+3                               1041  ...                 SP
+4                               1035  ...                 SP
+...                              ...  ...                ...
+1000158                        99950  ...                 RS
+1000159                        99900  ...                 RS
+1000160                        99950  ...                 RS
+1000161                        99980  ...                 RS
+1000162                        99950  ...                 RS
+
+[1000163 rows x 5 columns], 'olist_order_items':                                 order_id  order_item_id  ...   price freight_value
+0       00010242fe8c5a6d1ba2dd792cb16214              1  ...   58.90         13.29
+1       00018f77f2f0320c557190d7a144bdd3              1  ...  239.90         19.93
+2       000229ec398224ef6ca0657da4fc703e              1  ...  199.00         17.87
+3       00024acbcdf0a6daa1e931b038114c75              1  ...   12.99         12.79
+4       00042b26cf59d7ce69dfabb4e55b4fd9              1  ...  199.90         18.14
+...                                  ...            ...  ...     ...           ...
+112645  fffc94f6ce00a00581880bf54a75a037              1  ...  299.99         43.41
+112646  fffcd46ef2263f404302a634eb57f7eb              1  ...  350.00         36.53
+112647  fffce4705a9662cd70adb13d4a31832d              1  ...   99.90         16.95
+112648  fffe18544ffabc95dfada21779c9644f              1  ...   55.99          8.72
+112649  fffe41c64501cc87c801fd61db3f6244              1  ...   43.00         12.79
+
+[112650 rows x 7 columns], 'olist_order_payments':                                 order_id  ...  payment_value
+0       b81ef226f3fe1789b1e8b2acac839d17  ...          99.33
+1       a9810da82917af2d9aefd1278f1dcfa0  ...          24.39
+2       25e8ea4e93396b6fa0d3dd708e76c1bd  ...          65.71
+3       ba78997921bbcdc1373bb41e913ab953  ...         107.78
+4       42fdf880ba16b47b59251dd489d4441a  ...         128.45
+...                                  ...  ...            ...
+103881  0406037ad97740d563a178ecc7a2075c  ...         363.31
+103882  7b905861d7c825891d6347454ea7863f  ...          96.80
+103883  32609bbb3dd69b3c066a6860554a77bf  ...          47.77
+103884  b8b61059626efa996a60be9bb9320e10  ...         369.54
+103885  28bbae6599b09d39ca406b747b6632b1  ...         191.58
+
+[103886 rows x 5 columns], 'olist_order_reviews':                               review_id  ... review_answer_timestamp
+0      7bc2406110b926393aa56f80a40eba40  ...     2018-01-18 21:46:59
+1      80e641a11e56f04c1ad469d5645fdfde  ...     2018-03-11 03:05:13
+2      228ce5500dc1d8e020d8d1322874b6f0  ...     2018-02-18 14:36:24
+3      e64fb393e7b32834bb789ff8bb30750e  ...     2017-04-21 22:02:06
+4      f7c4243c7fe1938f181bec41a392bdeb  ...     2018-03-02 10:26:53
+...                                 ...  ...                     ...
+99219  574ed12dd733e5fa530cfd4bbf39d7c9  ...     2018-07-14 17:18:30
+99220  f3897127253a9592a73be9bdfdf4ed7a  ...     2017-12-11 20:06:42
+99221  b3de70c89b1510c4cd3d0649fd302472  ...     2018-03-23 09:10:43
+99222  1adeb9d84d72fe4e337617733eb85149  ...     2018-07-02 12:59:13
+99223  efe49f1d6f951dd88b51e6ccd4cc548f  ...     2017-07-03 21:01:49
+
+[99224 rows x 7 columns], 'olist_orders':                                order_id  ... order_estimated_delivery_date
+0      e481f51cbdc54678b7cc49136f2d6af7  ...           2017-10-18 00:00:00
+1      53cdb2fc8bc7dce0b6741e2150273451  ...           2018-08-13 00:00:00
+2      47770eb9100c2d0c44946d9cf07ec65d  ...           2018-09-04 00:00:00
+3      949d5b44dbf5de918fe9c16f97b45f8a  ...           2017-12-15 00:00:00
+4      ad21c59c0840e6cb83a9ceb5573f8159  ...           2018-02-26 00:00:00
+...                                 ...  ...                           ...
+99436  9c5dedf39a927c1b2549525ed64a053c  ...           2017-03-28 00:00:00
+99437  63943bddc261676b46f01ca7ac2f7bd8  ...           2018-03-02 00:00:00
+99438  83c1379a015df1e13d02aae0204711ab  ...           2017-09-27 00:00:00
+99439  11c177c8e97725db2631073c19f07b62  ...           2018-02-15 00:00:00
+99440  66dea50a8b16d9b4dee7af250b4be1a5  ...           2018-04-03 00:00:00
+
+[99441 rows x 8 columns], 'olist_products':                              product_id  ... product_width_cm
+0      1e9e8ef04dbcff4541ed26657ea517e5  ...             14.0
+1      3aa071139cb16b67ca9e5dea641aaa2f  ...             20.0
+2      96bd76ec8810374ed1b65e291975717f  ...             15.0
+3      cef67bcfe19066a932b7673e239eb23d  ...             26.0
+4      9dc1a7de274444849c219cff195d0b71  ...             13.0
+...                                 ...  ...              ...
+32946  a0b7d5a992ccda646f2d34e418fff5a0  ...             40.0
+32947  bf4538d88321d0fd4412a93c974510e6  ...             16.0
+32948  9a7c6041fa9592d9d9ef6cfe62a71f8c  ...             27.0
+32949  83808703fc0706a22e264b9d75f04a2e  ...             20.0
+32950  106392145fca363410d287a815be6de4  ...              7.0
+
+[32951 rows x 9 columns], 'olist_sellers':                              seller_id  ...  seller_state
+0     3442f8959a84dea7ee197c632cb2df15  ...            SP
+1     d1b65fc7debc3361ea86b5f14c68d2e2  ...            SP
+2     ce3ad9de960102d0677a81f5d0bb7b2d  ...            RJ
+3     c0f3eea2e14555b6faeea3dd58c1b1c3  ...            SP
+4     51a04a8a6bdcb23deccc82b0b80742cf  ...            SP
+...                                ...  ...           ...
+3090  98dddbc4601dd4443ca174359b237166  ...            PR
+3091  f8201cab383e484733266d1906e2fdfa  ...            SC
+3092  74871d19219c7d518d0090283e03c137  ...            SP
+3093  e603cf3fec55f8697c9059638d6c8eb5  ...            RS
+3094  9e25199f6ef7e7c347120ff175652c3b  ...            SP
+
+[3095 rows x 4 columns], 'product_category_name_translation':             product_category_name product_category_name_english
+0                    beleza_saude                 health_beauty
+1          informatica_acessorios         computers_accessories
+2                      automotivo                          auto
+3                 cama_mesa_banho                bed_bath_table
+4                moveis_decoracao               furniture_decor
+..                            ...                           ...
+66                         flores                       flowers
+67             artes_e_artesanato         arts_and_craftmanship
+68                fraldas_higiene           diapers_and_hygiene
+69  fashion_roupa_infanto_juvenil     fashion_childrens_clothes
+70             seguros_e_servicos         security_and_services
+
+[71 rows x 2 columns], 'public_holidays':          date                             localName  ... global launchYear
+0  2017-01-01            Confraternização Universal  ...   True       None
+1  2017-02-27                              Carnaval  ...   True       None
+2  2017-02-28                              Carnaval  ...   True       None
+3  2017-04-14                     Sexta-feira Santa  ...   True       None
+4  2017-04-16                     Domingo de Páscoa  ...   True       None
+5  2017-04-21                     Dia de Tiradentes  ...   True       None
+6  2017-05-01                    Dia do Trabalhador  ...   True       None
+7  2017-06-15                        Corpus Christi  ...   True       None
+8  2017-07-09  Revolução Constitucionalista de 1932  ...  False       None
+9  2017-09-07                  Dia da Independência  ...   True       None
+10 2017-10-12               Nossa Senhora Aparecida  ...   True       None
+11 2017-11-02                        Dia de Finados  ...   True       None
+12 2017-11-15              Proclamação da República  ...   True       None
+13 2017-12-25                                 Natal  ...   True       None
+
+[14 rows x 7 columns]}
+[2024-08-07T12:53:15.626+0000] {logging_mixin.py:188} INFO - olist_customers
+[2024-08-07T12:53:15.632+0000] {warnings.py:112} WARNING - /opt/***/dags/src/load.py:18: UserWarning: pandas only supports SQLAlchemy connectable (engine/connection) or database string URI or sqlite3 DBAPI2 connection. Other DBAPI2 objects are not tested. Please consider using SQLAlchemy.
+  df.to_sql(table_name, con=connection.connection, index=False, if_exists='replace')
+
+[2024-08-07T12:53:20.757+0000] {logging_mixin.py:188} INFO - olist_customers   cargada
+[2024-08-07T12:53:20.758+0000] {logging_mixin.py:188} INFO - __________________________________________
+[2024-08-07T12:53:20.759+0000] {logging_mixin.py:188} INFO - olist_geolocation
+[2024-08-07T12:53:43.550+0000] {logging_mixin.py:188} INFO - olist_geolocation   cargada
+[2024-08-07T12:53:43.551+0000] {logging_mixin.py:188} INFO - __________________________________________
+[2024-08-07T12:53:43.552+0000] {logging_mixin.py:188} INFO - olist_order_items
+[2024-08-07T12:53:51.898+0000] {logging_mixin.py:188} INFO - olist_order_items   cargada
+[2024-08-07T12:53:51.899+0000] {logging_mixin.py:188} INFO - __________________________________________
+[2024-08-07T12:53:51.899+0000] {logging_mixin.py:188} INFO - olist_order_payments
+[2024-08-07T12:53:56.343+0000] {logging_mixin.py:188} INFO - olist_order_payments   cargada
+[2024-08-07T12:53:56.344+0000] {logging_mixin.py:188} INFO - __________________________________________
+[2024-08-07T12:53:56.345+0000] {logging_mixin.py:188} INFO - olist_order_reviews
+[2024-08-07T12:54:03.949+0000] {logging_mixin.py:188} INFO - olist_order_reviews   cargada
+[2024-08-07T12:54:03.949+0000] {logging_mixin.py:188} INFO - __________________________________________
+[2024-08-07T12:54:03.950+0000] {logging_mixin.py:188} INFO - olist_orders
+[2024-08-07T12:54:12.213+0000] {logging_mixin.py:188} INFO - olist_orders   cargada
+[2024-08-07T12:54:12.214+0000] {logging_mixin.py:188} INFO - __________________________________________
+[2024-08-07T12:54:12.214+0000] {logging_mixin.py:188} INFO - olist_products
+[2024-08-07T12:54:13.694+0000] {logging_mixin.py:188} INFO - olist_products   cargada
+[2024-08-07T12:54:13.695+0000] {logging_mixin.py:188} INFO - __________________________________________
+[2024-08-07T12:54:13.696+0000] {logging_mixin.py:188} INFO - olist_sellers
+[2024-08-07T12:54:14.181+0000] {logging_mixin.py:188} INFO - olist_sellers   cargada
+[2024-08-07T12:54:14.183+0000] {logging_mixin.py:188} INFO - __________________________________________
+[2024-08-07T12:54:14.184+0000] {logging_mixin.py:188} INFO - product_category_name_translation
+[2024-08-07T12:54:14.749+0000] {logging_mixin.py:188} INFO - product_category_name_translation   cargada
+[2024-08-07T12:54:14.750+0000] {logging_mixin.py:188} INFO - __________________________________________
+[2024-08-07T12:54:14.751+0000] {logging_mixin.py:188} INFO - public_holidays
+[2024-08-07T12:54:15.044+0000] {logging_mixin.py:188} INFO - public_holidays   cargada
+[2024-08-07T12:54:15.044+0000] {logging_mixin.py:188} INFO - __________________________________________
+[2024-08-07T12:54:15.047+0000] {logging_mixin.py:188} INFO - final
+[2024-08-07T12:54:15.098+0000] {python.py:237} INFO - Done. Returned value was: None
+[2024-08-07T12:54:15.099+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-08-07T12:54:15.114+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=ETL_anyone, task_id=carga, run_id=manual__2024-08-07T12:53:08.668874+00:00, execution_date=20240807T125308, start_date=20240807T125311, end_date=20240807T125415
+[2024-08-07T12:54:15.259+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 0
+[2024-08-07T12:54:15.300+0000] {taskinstance.py:3503} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2024-08-07T12:54:15.329+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

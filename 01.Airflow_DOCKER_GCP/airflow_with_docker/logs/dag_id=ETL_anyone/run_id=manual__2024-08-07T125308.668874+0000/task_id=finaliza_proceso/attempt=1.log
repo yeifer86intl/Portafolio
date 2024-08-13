@@ -1,0 +1,21 @@
+[2024-08-07T12:54:48.276+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-08-07T12:54:48.309+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: ETL_anyone.finaliza_proceso manual__2024-08-07T12:53:08.668874+00:00 [queued]>
+[2024-08-07T12:54:48.320+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: ETL_anyone.finaliza_proceso manual__2024-08-07T12:53:08.668874+00:00 [queued]>
+[2024-08-07T12:54:48.321+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2024-08-07T12:54:48.380+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): finaliza_proceso> on 2024-08-07 12:53:08.668874+00:00
+[2024-08-07T12:54:48.390+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62: DeprecationWarning: This process (pid=89) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2024-08-07T12:54:48.392+0000] {standard_task_runner.py:64} INFO - Started process 91 to run task
+[2024-08-07T12:54:48.392+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'ETL_anyone', 'finaliza_proceso', 'manual__2024-08-07T12:53:08.668874+00:00', '--job-id', '30', '--raw', '--subdir', 'DAGS_FOLDER/ETL_anyone.py', '--cfg-path', '/tmp/tmpzo0rh_vr']
+[2024-08-07T12:54:48.396+0000] {standard_task_runner.py:91} INFO - Job 30: Subtask finaliza_proceso
+[2024-08-07T12:54:48.486+0000] {task_command.py:426} INFO - Running <TaskInstance: ETL_anyone.finaliza_proceso manual__2024-08-07T12:53:08.668874+00:00 [running]> on host 2e8a41f9b15c
+[2024-08-07T12:54:48.678+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='ETL_anyone' AIRFLOW_CTX_TASK_ID='finaliza_proceso' AIRFLOW_CTX_EXECUTION_DATE='2024-08-07T12:53:08.668874+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-08-07T12:53:08.668874+00:00'
+[2024-08-07T12:54:48.681+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-08-07T12:54:48.682+0000] {logging_mixin.py:188} INFO - adios
+[2024-08-07T12:54:48.683+0000] {python.py:237} INFO - Done. Returned value was: None
+[2024-08-07T12:54:48.683+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-08-07T12:54:48.694+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=ETL_anyone, task_id=finaliza_proceso, run_id=manual__2024-08-07T12:53:08.668874+00:00, execution_date=20240807T125308, start_date=20240807T125448, end_date=20240807T125448
+[2024-08-07T12:54:48.768+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 0
+[2024-08-07T12:54:48.790+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-08-07T12:54:48.820+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
